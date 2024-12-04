@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { ClerkProvider } from "@clerk/nextjs";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -24,12 +24,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-dark-2 text-white box-border`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        layout: {
+          logoImageUrl: "/icons/yoom-logo.svg",
+          socialButtonsVariant: "iconButton",
+        },
+        variables: {
+          //for text
+          colorText: "white",
+          //for button
+          colorPrimary: "#0E78F9",
+          //for background
+          colorBackground: "#1C1F2E",
+          //for Input
+          colorInputBackground: "rgb(65 60 60 / 70%)",
+          colorInputText: "white",
+        },
+      }}
+    >
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-dark-2 text-white box-border`}
+        >
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -2,9 +2,11 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
+import { SignedIn,UserButton } from "@clerk/nextjs";
+
 export default function NavBar() {
   return (
-    <nav className="flex justify bg-dark-1 px-6 py-6 w-full">
+    <nav className="flex-between  bg-dark-1 px-6 py-6 w-full">
       <Link href="/" className="flex items-center">
         <Image
           priority
@@ -18,7 +20,13 @@ export default function NavBar() {
         </h2>
       </Link>
 
-      <div className="flex-between">
+      <div className="flex-between gap-5">
+        {/* <SignedOut>
+          <SignInButton />
+        </SignedOut> */}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
         {/* for clerk management */}
         <MobileNav />
       </div>

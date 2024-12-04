@@ -1,27 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-@layer utilities{
-  .flex-center{
+@layer utilities {
+  .flex-center {
     @apply flex justify-center items-center
   }
-  .flex-between{
+
+  .flex-between {
     @apply flex justify-between items-center
   }
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0 100%;
     --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
+    --card: 0 0 100%;
     --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
+    --popover: 0 0 100%;
     --popover-foreground: 222.2 84% 4.9%;
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -41,16 +40,17 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
+    --radius: .5rem;
+    --sidebar-background: 0 0 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -79,30 +79,28 @@ body {
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
-
-
 @layer base {
   :root {
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
@@ -113,10 +111,73 @@ body {
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+.cl-internal-13ipea7 > :not(:first-of-type),
+.cl-internal-4x6jej > :not(:first-of-type),
+.cl-internal-df7v37 {
+  display: none;
+
+}
+
+button.cl-userButtonPopoverActionButton{
+  color: white;
+}
+
+
+/*
+
+.cl-internal-1p733cp {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  gap: 2rem;
+  background-color: #1C1F2E;
+
+  transition-property: background-color, background, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  text-align: center;
+  z-index: 10;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.03);
+  border-radius: .5rem;
+  position: relative;
+  padding: 2rem 2.5rem;
+  -webkit-box-pack: center;
+  place-content: center;
+  border-width: 0;
+  box-shadow: rgba(0, 0, 0, 0.08) 0 0 2px 0px, rgba(25, 28, 33, 0.06) 0 1px 2px 0px, rgba(0, 0, 0, 0.03) 0 0 0 1px;
+}
+
+.cl-internal-2iusy0 {
+  background-color:;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+}
+
+.cl-internal-1qyb9gr {
+  background-color: white;
+}
+
+.cl-internal-1c7fjmu,
+.cl-internal-1vbkfwh,
+.cl-internal-xexz24 {
+  color: rgb(185 187 209);
+} */
+
+.cl-providerIcon__github {
+  filter: invert(1);
 }

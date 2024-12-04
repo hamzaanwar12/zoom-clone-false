@@ -8,7 +8,7 @@ export default function SideBar() {
   const pathname = usePathname()
 
   return (
-    <main className="sticky top-0 left-0 bg-dark-1 px-1 flex flex-1 flex-col w-fits max-sm:hidden py-6 gap-5 lg:max-w-[264px] min-h-screen">
+    <main className="sticky top-0 left-0 bg-dark-1 px-1 flex flex-1 flex-col w-fits max-sm:hidden py-6 gap-5 sm:max-w-[85px] lg:max-w-[264px] min-h-screen">
       {sideBarItems.map((item) => {
         return (
           <SideBarItem
