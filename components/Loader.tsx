@@ -5,7 +5,7 @@ export default function Loader() {
     <div className="w-full h-screen flex justify-center items-center">
       <Image
         priority
-        src={"/images/loading-circle.svg"}
+        src={"/icons/loading-circle.svg"}
         alt={"Loading"}
         width={45}
         height={45}
