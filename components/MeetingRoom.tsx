@@ -8,8 +8,11 @@ import {
   CallParticipantsList,
   SpeakerLayout,
   PaginatedGridLayout,
+  useCallStateHooks,
+  CallingState,
 } from "@stream-io/video-react-sdk";
 import { cn } from "@/lib/utils";
+import Loader from "@/components/Loader";
 import { LayoutList } from "lucide-react";
 import {
   DropdownMenu,
@@ -21,8 +24,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 // import { Button } from "./ui/button";
 import { Users } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import EndCallButton from "./EndCallButton"
+import { useRouter, useSearchParams } from "next/navigation";
+import EndCallButton from "./EndCallButton";
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
 
@@ -30,7 +33,16 @@ export default function MeetingRoom() {
   const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
   const [showParticipants, setShowParticipants] = useState(true);
   const searchParams = useSearchParams();
-//   const isPersonalRoom = !searchParams.get("personal");
+  const isPersonalRoom = !!searchParams.get("personal");
+
+  const router = useRouter();
+  const { useCallCallingState } = useCallStateHooks();
+  const callingState = useCallCallingState();
+
+  if (callingState != CallingState.JOINED) {
+    console.log("Loader ....");
+    return <Loader />;
+  }
 
   const CallLayout = () => {
     switch (layout) {
@@ -65,10 +77,10 @@ export default function MeetingRoom() {
 
         <div
           className={
-            "fixed bottom-0 flex w-full items-center justify-center gap-5"
+            "fixed bottom-0 flex flex-wrap w-full items-center justify-center gap-5"
           }
         >
-          <CallControls />
+          <CallControls onLeave={() => router.push("/")} />
           <DropdownMenu>
             <div className="flex items-center">
               <DropdownMenuTrigger>
@@ -96,20 +108,19 @@ export default function MeetingRoom() {
             </DropdownMenuContent>
           </DropdownMenu>
           <CallStatsButton />
+          <button
+            onClick={() => {
+              console.log("clicked");
+              setShowParticipants((prev) => !prev);
+            }}
+          >
+            <div className="cursor-pointer rounded-2xl p-2 bg-[#19232d] hover:bg-[#4c535b] text-white">
+              <Users size={20} className="text-white"></Users>
+            </div>
+          </button>
+          {/* {isPersonalRoom && <EndCallButton/>} */}
+          <EndCallButton />
         </div>
-
-        <button
-          onClick={() => {
-            console.log("clicked");
-            setShowParticipants((prev) => !prev);
-          }}
-        >
-          <div className="cursor-pointer rounded-2xl p-2 bg-[#19232d] hover:bg-[#4c535b] text-white">
-            <Users size={20} className="text-white"></Users>
-          </div>
-        </button>
-        {/* {isPesonalRoom && <EndCallButton/>} */}
-        <EndCallButton/>
       </div>
     </section>
   );

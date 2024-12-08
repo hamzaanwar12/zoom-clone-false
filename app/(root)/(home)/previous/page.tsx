@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import CallList from "@/components/CallList";
 
 export default function Previous() {
   return (
-    <div>
-      Previous
-    </div>
-  )
+    <section className="flex size-full  flex-col gap-10">
+      <h1 className="text-3xl font-bold">Previous</h1>
+
+      <CallList type="ended" />
+    </section>
+  );
 }
