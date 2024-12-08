@@ -18,7 +18,8 @@ export default function MeetingID({
   // searchParams.get('personal')=>personal=>!"personal"=>false=>!!"personal"=>true
   const resolvedParams = React.use(params);
   const { id } = resolvedParams;
-  const { user, isLoaded } = useUser();
+  // const { user, isLoaded } = useUser();
+  const { isLoaded } = useUser();
   const [isSetupComplete, setIsSetupComplete] = useState(false);
   const { call, isCallLoading } = useGetCallById(id);
   if (!isLoaded || isCallLoading) return <Loader />;
